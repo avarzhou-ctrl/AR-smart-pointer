@@ -1,0 +1,16 @@
+{
+  "name": "ar-smart-pointer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "dev:phone": "HOST=0.0.0.0 HTTPS_KEY=.cert/key.pem HTTPS_CERT=.cert/cert.pem node server.js",
+    "dev:yolo": "INSPECTOR_PROVIDER=yolo node server.js",
+    "dev:phone:yolo": "INSPECTOR_PROVIDER=yolo HOST=0.0.0.0 HTTPS_KEY=.cert/key.pem HTTPS_CERT=.cert/cert.pem node server.js",
+    "check:api": "node scripts/check-api.js",
+    "phone:url": "node scripts/phone-url.js",
+    "start": "node server.js",
+    "build": "node scripts/validate.js"
+  }
+}

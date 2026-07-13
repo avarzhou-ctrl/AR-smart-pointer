@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#07100d">
+    <title>Smart Pointer</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="camera-stage" aria-label="Smart Pointer camera inspector">
+        <video id="camera" class="camera-feed" autoplay playsinline muted></video>
+        <canvas id="captureCanvas" class="capture-canvas" width="960" height="540"></canvas>
+
+        <div id="reticle" class="reticle" aria-hidden="true">
+          <span class="reticle-ring"></span>
+          <span class="reticle-dot"></span>
+        </div>
+
+        <div id="targetPin" class="target-pin" aria-hidden="true"></div>
+
+        <article id="hudCard" class="hud-card" aria-live="polite">
+          <div class="hud-header">
+            <div>
+              <div class="hud-kicker">Inspector Agent</div>
+              <h1 id="componentName">Tap a component</h1>
+            </div>
+            <button id="hudToggle" class="hud-toggle" type="button" aria-expanded="true" aria-controls="hudBody" aria-label="Collapse inspector panel" title="Collapse inspector panel">
+              <span class="icon-collapse"></span>
+            </button>
+          </div>
+          <div id="hudBody" class="hud-body">
+            <p id="componentFunction">Point the crosshair at hardware, then tap the camera view to capture a frame for analysis.</p>
+            <p id="componentCheck" class="check-line">Camera access is required for live inspection.</p>
+            <div class="hud-meta">
+            <span id="confidenceBadge">Ready</span>
+            <span id="latencyReadout">Local proxy</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="top-bar">
+          <div>
+            <p class="eyebrow">Smart Pointer</p>
+            <p class="status" id="statusText">Starting camera...</p>
+          </div>
+          <button id="cameraButton" class="icon-button" type="button" aria-label="Retry camera" title="Retry camera">
+            <span class="icon-retry"></span>
+          </button>
+        </div>
+
+        <form class="control-panel" id="controls">
+          <fieldset>
+            <legend>Domain</legend>
+            <label>
+              <input type="radio" name="domain" value="general" checked>
+              <span>General</span>
+            </label>
+            <label>
+              <input type="radio" name="domain" value="electronics">
+              <span>Electronics</span>
+            </label>
+            <label>
+              <input type="radio" name="domain" value="mechanics">
+              <span>Mechanics</span>
+            </label>
+          </fieldset>
+
+          <button id="inspectButton" class="primary-button" type="button" disabled>
+            <span class="scan-icon"></span>
+            Inspect Target
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
